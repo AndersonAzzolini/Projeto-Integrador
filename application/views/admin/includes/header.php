@@ -7,10 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="public/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../public/css/bootstrap.min.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <link rel="stylesheet" href="public/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" href="../public/css/style.css">
 
 
   <title>Hello, world!</title>
@@ -30,7 +30,7 @@
           <a class="nav-link" href="<?= base_url('produtos') ?>">Produtos</a>
           <b><a class="nav-link " href="<?= base_url('orcamento') ?>">Orçamento </a></b>
           <a class="nav-link" href="<?= base_url('sobre') ?>">Sobre</a>
-          <a class="nav-link" href="<?= base_url('login') ?>">Administração</a>
+          <a class="nav-link" href="<?= base_url('login/logout') ?>">sair</a>
         </div>
       </div>
     </div>

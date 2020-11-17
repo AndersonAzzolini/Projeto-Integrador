@@ -13,7 +13,7 @@
             ?>
                 <div class="col my-2 rounded" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
                     <div class="card">
-                        <a href="#"> <img src="public/uploads/<?= $c->arquivo ?>" class="card-img-top image-fluid slide" alt="" style="height: 450px"> </a>
+                        <a href="#"> <img src="../public/uploads/<?= $c->arquivo ?>" class="card-img-top image-fluid slide" alt="" style="height: 450px"> </a>
                         <div class="card-body p-0 my-2">
                             <h5 class="card-title text-center"><?= $c->titulo ?></h5>
                         </div>
@@ -30,10 +30,10 @@
 
         <div class="row mt-3 buttons-carrousel">
             <div class="col-6 text-center">
-                <img src="public/icons/iconfinder_arrow-left-01_186410.svg" class="float-right image-fluid mr-4 btn" alt="Slide anterior" id="previus-carrousel-categorias">
+                <img src="../public/icons/iconfinder_arrow-left-01_186410.svg" class="float-right image-fluid mr-4 btn" alt="Slide anterior" id="previus-carrousel-categorias">
             </div>
             <div class="col-6 text-center">
-                <img src="public/icons/iconfinder_arrow-right-01_186409.svg" alt="Próximo Slide" class="float-left image-fluid ml-4 btn" id="next-carrousel-categorias">
+                <img src="../public/icons/iconfinder_arrow-right-01_186409.svg" alt="Próximo Slide" class="float-left image-fluid ml-4 btn" id="next-carrousel-categorias">
             </div>
 
         </div>

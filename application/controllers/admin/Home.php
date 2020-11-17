@@ -1,6 +1,6 @@
 <?php
 
-class Home extends Public_Controller
+class Home extends Admin_Controller
 {
     public function __construct()
     {
@@ -12,6 +12,6 @@ class Home extends Public_Controller
         $data['cards'] =  $this->Home_model->GetCards();
         $data['home'] =  $this->Home_model->getHome();
 
-        $this->load->view('home/index', $data);
+        $this->load->view('admin/home/index', $data);
     }
 }
