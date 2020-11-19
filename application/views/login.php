@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" href="public/css/stylelogin.css">
+    <link rel="stylesheet" href="../public/css/stylelogin.css">
 
 
     <title>Hello, world!</title>
@@ -18,21 +18,22 @@
 
 <body class="text-center ">
     <div id="fundoLogin">
-        <form class=" form-signin">
+    <?php echo validation_errors(); ?>
+    <?= !empty($this->session->userdata('mensagem')) ? $this->session->userdata('mensagem') : null; ?>
+        <form method="post" action="<?= base_url('admin/login/action') ?>"  class=" form-signin " id="form-login" >
             <img src="public/icons/icon-login.png" alt="" srcset="">
             <div class="form-group">
-                <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <label for="loginEmail" class="sr-only">Email address</label>
+                <input type="email" id="loginEmail" class="form-control" name="loginEmail" placeholder="Email" required autofocus>
             </div>
             <div class="form-group">
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="loginSenha" class="sr-only">Senha</label>
+                <input type="password" id="loginSenha" class="form-control" name="loginSenha" placeholder="Senha" required>
             </div>
-            <button class="btn btn-lg btn-primary mt-2" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-primary mt-2" type="submit">Entrar</button>
+            <a href="<?= base_url('/home') ?>" class="btn btn-primary btn-lg">Inicio</a>
         </form>
-
     </div>
-
 </body>
 
 </html>

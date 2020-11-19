@@ -27,10 +27,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-link" href="<?= base_url('produtos') ?>">Produtos</a>
-          <b><a class="nav-link " href="<?= base_url('orcamento') ?>">Orçamento </a></b>
-          <a class="nav-link" href="<?= base_url('sobre') ?>">Sobre</a>
-          <a class="nav-link" href="<?= base_url('login/logout') ?>">sair</a>
+          <a class="nav-link" href="<?= base_url('admin/produtos') ?>">Produtos</a>
+          <a class="nav-link" href="<?= base_url('admin/sobre') ?>">Sobre</a>
+          <a class="nav-link" href="<?= base_url('admin/login/logout') ?>">sair</a>
         </div>
       </div>
     </div>

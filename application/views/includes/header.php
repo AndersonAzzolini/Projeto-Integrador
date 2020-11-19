@@ -30,7 +30,7 @@
           <a class="nav-link" href="<?= base_url('produtos') ?>">Produtos</a>
           <b><a class="nav-link " href="<?= base_url('orcamento') ?>">Orçamento </a></b>
           <a class="nav-link" href="<?= base_url('sobre') ?>">Sobre</a>
-          <a class="nav-link" href="<?= base_url('login') ?>">Administração</a>
+          <a class="nav-link" href="<?= base_url('admin/login') ?>">Administração</a>
         </div>
       </div>
     </div>

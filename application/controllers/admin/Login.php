@@ -14,14 +14,15 @@ class Login extends CI_Controller{
     }
 
     public function action(){
-        $this->form_validation->set_rules('email', 'E-mail', 'required|valid_email');
-        $this->form_validation->set_rules('senha', 'senha', 'required');
+        echo "teete0";
+        $this->form_validation->set_rules('loginEmail', 'loginEmail', 'required|valid_email');
+        $this->form_validation->set_rules('loginSenha', 'loginSenha', 'required');
         if ($this->form_validation->run() == FALSE){
             $this->index();
         }else{
             $where = array(
-                'email'=>$this->input->post('email'),
-                'senha'=>$this->input->post('senha')
+                'email'=>$this->input->post('loginEmail'),
+                'senha'=>$this->input->post('loginSenha')
             );
             $busca = $this->Login_model->get($where);
             if($busca){
@@ -30,13 +31,13 @@ class Login extends CI_Controller{
                 redirect(base_url('admin/home'));
             }else{
                 $this->session->set_flashdata('mensagem','Login inválido');
-                redirect(base_url('login'));
+                redirect(base_url('admin/login'));
             }
         }
     }
 
     public function logout(){
         session_destroy();
-        redirect(base_url('login'));
+        redirect(base_url('admin/login'));
     }
 }
