@@ -1,3 +1,5 @@
+
+
 .card{
   transform: scale(1);
   transition: 0.4;
@@ -6,3 +8,38 @@
 .card .slick-center{
   transform: scale(1);
 }
+
+.wordbreak{
+  word-break: break-word;
+}
+#sobreAdmin{
+  color: #43464b;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 15px;
+
+}
+
+@media (min-width: 770px) {
+  body, html{
+    height: 100vh;
+  }
+  #sobreAdmin{
+    text-align: justify;
+    word-break: break-word;
+    padding: inherit;
+ }
+}
+
+
+ @media (max-width: 768px) {
+  body, html{
+    height: 100vh;
+  }
+
+  #sobreAdmin{
+    text-align: justify;
+    word-break: break-word;
+    padding: inherit;
+ }
+
+ }

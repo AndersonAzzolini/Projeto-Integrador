@@ -1,10 +1,5 @@
 </div>
-<div style="background-color: #000000">
-    <footer class="container">
-        <div  >
-            <h1>meu site tenebroso</h1>
-        </div>
-    </footer>
+
 </div>
 
 <script src="../public/js/jquery-3.5.1.slim.min.js"></script>

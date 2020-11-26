@@ -11,7 +11,7 @@ class Home extends Public_Controller
     {
         $data['cards'] =  $this->Home_model->GetCards();
         $data['home'] =  $this->Home_model->getHome();
-
+        $data['sobre'] =  $this->Home_model->GetSobre();
         $this->load->view('home/index', $data);
     }
 }

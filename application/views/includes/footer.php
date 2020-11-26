@@ -1,6 +1,5 @@
-<hr>
 </div>
-<footer>
+<footer class="mt-3">
     <div style="background-color: #000000" class="container">
         <h1>meu site tenebroso</h1>
     </div>
