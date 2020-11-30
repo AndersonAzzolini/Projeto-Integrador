@@ -5,7 +5,7 @@ class Home_model extends CI_Model
     public function GetCards($categoria="")
     {
         
-        $this->db->select('imagens.arquivo, categorias.descricao,categorias.titulo');
+        $this->db->select('imagens.arquivo,categorias.nome, categorias.descricao,categorias.titulo');
         $this->db->from(' imagens');
         $this->db->join('categorias', 'categorias.id = imagens.id_categorias', 'inner');
         $this->db->where('imagens.capa', 1);
