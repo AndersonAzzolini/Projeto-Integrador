@@ -2,7 +2,7 @@
 
 class Funcionario_model extends CI_Model
 {
-  const table = 'tb_funcionarios';
+  const table = 'tb_funcionario';
 
   public function registerFuncionario($fields)
   {
@@ -10,11 +10,19 @@ class Funcionario_model extends CI_Model
     return $this->db->affected_rows();
   }
 
-  public function verificaEmpresa($email)
+  public function verificaFuncionario($where)
   {
     $this->db->select('email');
-    $this->db->where('email', $email);
-		$query = $this->db->get(self::table);
+    $this->db->where($where);
+    $query = $this->db->get(self::table);
     return $query->num_rows();
+  }
+  public function VerificaIdEmpresa()
+  {
+    $this->db->select('id');
+    $this->db->where('email', $this->session->userdata('email'));
+    $this->db->get('tb_login_empresa');
+    
+    
   }
 }

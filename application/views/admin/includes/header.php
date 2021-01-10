@@ -28,7 +28,7 @@
             <div class="dropdown-menu">
               <a class="dropdown-item" href="<?= base_url('admin/produtos') ?>">Consultar</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="<?= base_url('admin/funcionarios/cadastro') ?>">Cadastrar</a>
+              <a class="dropdown-item" href="<?= base_url('admin/funcionarios/cadastro_funcionario') ?>">Cadastrar</a>
             </div>
           </li>
           <a class="nav-link" href="<?= base_url('admin/sobre') ?>">Sobre</a>
