@@ -5,4 +5,5 @@ class Login_model extends CI_Model{
         $this->db->where($where);
         return $this->db->get('tb_login_empresa')->row();
     }
+    
 }

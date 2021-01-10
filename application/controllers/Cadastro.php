@@ -17,7 +17,6 @@ class Cadastro extends Public_Controller
                 $retorno = array(
                     'result' => 'cadastrado'
                 );
-           
                 echo 'email ja cadastrado no sistema';
                // exit();
                 //redirect(base_url('admin/login'));     

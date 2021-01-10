@@ -7,26 +7,28 @@
             <div class="col align-self-center">
                 <div class="col-6">
                     <div class="form-group ">
-                        <label for="nome">Nome</label>
-                        <input type="text" id="nome" name="nome" class="form-control" placeholder="Digite seu Nome">
+                        <label for="nomeFuncionario">Nome</label>
+                        <input type="text" id="nomeFuncionario" name="nomeFuncionario" class="form-control" placeholder="Digite o Nome">
                     </div>
                     <div class="form-group ">
                         <div class="form-group ">
-                            <label for="nomeEmpresa">Nome Empresa</label>
-                            <input type="text" id="nomeEmpresa" name="nomeEmpresa" class="form-control" placeholder="Digite o nome da Empresa">
+                            <label for="sobrenomeFuncionario">Sobenome</label>
+                            <input type="text" id="sobrenomeFuncionario" name="sobrenomeFuncionario" class="form-control" placeholder="Digite o Sobrenome ">
                         </div>
                         <div class="form-group ">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="Digite seu Email">
+                            <label for="emailFuncionario">Email</label>
+                            <input type="email" id="emailFuncionario" name="emailFuncionario" class="form-control" placeholder="Digite seu Email">
                         </div>
                         <div class="form-group ">
-                            <label for="senha">Senha</label>
-                            <input type="password" id="senha" name="senha" class="form-control" placeholder="Digite sua Senha">
+                            <label for="senhaFuncionario">Senha</label>
+                            <input type="password" id="senhaFuncionario" name="senhaFuncionario" class="form-control" placeholder="Digite sua Senha">
                         </div>
                         <button class="btn btn-primary mt-2" id="btn-cadastro-funcionario">Cadastrar</button>
+
                     </div>
                 </div>
             </div>
         </form>
+
     </div>
 </div>

@@ -16,5 +16,7 @@ class Cadastro_model extends CI_Model
     $this->db->where('email', $email);
 		$query = $this->db->get(self::table);
     return $query->num_rows();
+
   }
+
 }
