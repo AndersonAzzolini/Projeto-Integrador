@@ -9,7 +9,9 @@ class Home extends Admin_Controller
     }
     public function index()
     {
-
+        $this->load->view('admin/includes/header');
         $this->load->view('admin/home/index');
+        $this->load->view('admin/includes/footer');
+
     }
 }

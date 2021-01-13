@@ -14,7 +14,6 @@ class Admin_Controller extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->_header();
         if ($this->session->userdata('logado') != true) {
             $this->session->set_flashdata('mensagem', 'Realize o login primeiro');
             redirect(base_url('admin/login'));
@@ -33,7 +32,7 @@ class Admin_Controller extends MY_Controller
             );
             $busca = $this->Login_model->get($where);
             if ($busca) {
-                $sessao = array('logado' => true, 'nome' => $busca->nome);
+                $sessao = array('logado' => true, 'nome' => $busca->nome, 'id' => $busca->id, 'email' => $busca->email);
                 $this->session->set_userdata($sessao);
                 redirect(base_url('contatos'));
             } else {
@@ -41,19 +40,6 @@ class Admin_Controller extends MY_Controller
                 redirect(base_url('login'));
             }
         }
-    }
-    public function __destruct()
-    {
-        $this->_footer();
-    }
-    public function _header()
-    {
-        $this->load->view('admin/includes/header');
-    }
-    public function _footer()
-    {
-        ##faz a inclusão do arquivo do modo tradicional pois não tem mais acesso a CI_Controller
-        require_once(APPPATH . 'views/admin/includes/footer.php');
     }
 }
 

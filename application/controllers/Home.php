@@ -9,5 +9,6 @@ class Home extends Public_Controller
     public function index()
     {
         $this->load->view('home/index');
+
     }
 }

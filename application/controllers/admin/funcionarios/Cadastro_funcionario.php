@@ -7,10 +7,12 @@ class Cadastro_funcionario extends Admin_Controller
         parent::__construct();
         $this->load->model('Funcionario_model');
         $this->load->model('Login_model');
-        $this->load->view('admin/funcionarios/index');
     }
     public function index()
     {
+        $this->load->view('admin/includes/header');
+        $this->load->view('admin/funcionarios/index');
+        $this->load->view('admin/includes/footer');
     }
 
     public function registerFuncionario()
@@ -18,14 +20,13 @@ class Cadastro_funcionario extends Admin_Controller
         if ($_POST) {
             $where = array(
                 'email' => $this->input->post('emailFuncionario'),
-                'id_empresa'=> $this->session->userdata('id')
+                'id_empresa' => $this->session->userdata('id')
             );
             $verificaEmail = $this->Funcionario_model->verificaFuncionario($where);
             if ($verificaEmail > 0) {
                 $retorno = array(
                     'result' => 'cadastrado'
                 );
-                echo 'email ja cadastrado no sistema';
             } else {
                 $insert = array(
                     'nome' => $this->input->post('nomeFuncionario'),
@@ -34,22 +35,15 @@ class Cadastro_funcionario extends Admin_Controller
                     'senha' => $this->input->post('senhaFuncionario'),
                     'id_empresa' => $this->session->userdata('id'),
                     'usuario_ativo' => 1
-
                 );
                 $registerFuncionario = $this->Funcionario_model->registerFuncionario($insert);
                 if ($registerFuncionario > 0) {
-                    echo 'Fúncionario Cadastrado com sucesso..';
-
                     $retorno = array(
                         'result' => true
                     );
-                } else {
-                    $retorno = array(
-                        'result' => false
-                    );
-                };
-                echo json_encode($retorno);
+                }
             }
+            echo json_encode($retorno);
         }
     }
 }

@@ -9,6 +9,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="<?= base_url('public/css/bootstrap.min.css') ?>">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <link rel="stylesheet" href="<?= base_url('public/css/style.css') ?>">
   <title>Hello, world!</title>
@@ -26,12 +27,11 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Funcionários</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="<?= base_url('admin/produtos') ?>">Consultar</a>
+              <a class="dropdown-item" href="<?= base_url('admin/funcionarios/consulta_funcionario') ?>">Consultar</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="<?= base_url('admin/funcionarios/cadastro_funcionario') ?>">Cadastrar</a>
             </div>
           </li>
-          <a class="nav-link" href="<?= base_url('admin/sobre') ?>">Sobre</a>
           <a class="nav-link" href="<?= base_url('admin/login/logout') ?>">sair</a>
         </div>
       </div>

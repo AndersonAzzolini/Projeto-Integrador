@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
   $("#btn-cadastro-funcionario").click(function () {
     $("#form-cadastro-funcionario").validate({
       rules: {
@@ -32,16 +33,21 @@ $(document).ready(function () {
           url: "cadastro_funcionario/registerFuncionario", // Url de destino do form
           data: $('#form-cadastro-funcionario').serialize(), // Dados que serão enviados para o servidor, pega dos inputs no form
           timeout: 15000,
-          dataType: 'json'
-        }).done(function (retorno) { // Retorno após requisição ser concluida com sucesso.
-          alert("teste")
-
-          if (retorno['result'] === 'cadastrado') {
-            alert("caiu no if")
-          } else {
-            alert("não caiu no if")
+          dataType: 'json',
+          success: function (retorno) { // Retorno após requisição ser concluida com sucesso.
+            if (retorno['result'] == "cadastrado") {
+              Swal.fire({
+                title: 'Funcionário já cadastrado!',
+                icon: 'error',
+              })
+            } else {
+              Swal.fire({
+                title: 'Funcionário cadastrado com sucesso!',
+                icon: 'success',
+              })
+            }
           }
-        });
+        })
       }
     });
   });
@@ -83,7 +89,7 @@ $(document).ready(function () {
         }).done(function (retorno) { // Retorno após requisição ser concluida com sucesso.
           alert("teste")
 
-          if (retorno['result'] === 'cadastrado') {
+          if (retorno['result'] == 'cadastrado') {
             alert("caiu no if")
           } else {
             alert("não caiu no if")
@@ -92,6 +98,68 @@ $(document).ready(function () {
       }
     });
   });
+
+  $('.form-check-input').click(function () {
+    $ArrayIdAtivos = [];
+    $nome = $(this).parent().closest("tr").children('td:eq(1)').text().trim();
+    $id = $(this).parent().closest("tr").children('td:eq(3)').text().trim();
+
+    if ($nome == "Ativo") {
+      $nome = 'Desativado';
+      $.ajax({ //Começa requisição para o servidor 
+        method: "POST",
+        url: "consulta_funcionario/AlteraSituacao", // Url de destino do form
+        data: {
+          'id': $id,
+          'situacao': 0
+        },
+        timeout: 15000,
+        dataType: 'json',
+        success: function (retorno) {
+          $('#' + $id).html('Desativado')
+          if (retorno["result"] == true) {
+            Swal.fire({
+              title: retorno['mensagem'],
+              icon: 'success',
+            })
+          } else {
+            Swal.fire({
+              title: retorno['mensagem'],
+              icon: 'error',
+            })
+          }
+        }
+      })
+    } else {
+      $nome = 'Ativo';
+      $.ajax({ //Começa requisição para o servidor 
+        method: "POST",
+        url: "consulta_funcionario/AlteraSituacao", // Url de destino do form
+        data: {
+          'id': $id,
+          'situacao': 1
+        },
+        timeout: 15000,
+        dataType: 'json',
+        success: function (retorno) {
+          $('#' + $id).html('Ativo')
+          if (retorno["result"] == "desativado") {
+            Swal.fire({
+              title: retorno['mensagem'],
+              icon: 'success',
+            })
+          } else {
+            Swal.fire({
+              title: retorno['mensagem'],
+              icon: 'error',
+            })
+          }
+        }
+      })
+    }
+  })
+
+  $('.dataTable').DataTable();
 
   AOS.init();
 });
