@@ -1,5 +1,34 @@
 $(document).ready(function () {
 
+  var calendarEl = document.getElementById('calendar');
+
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    headerToolbar: {
+      right: 'prev,next,today,dayGridMonth'
+    },
+    height: 'auto',
+    locale: "pt-br",
+    editable: true,
+    eventLimit: true,
+    dateClick: function(info) {
+      alert('clicado em: ' + info.dateStr);
+      alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+      alert('Current view: ' + info.view.type);
+    },
+  
+    eventClick: function(info) {
+      alert('Event: ' + info.event.title);
+      alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+      alert('View: ' + info.view.type);
+  
+      // change the border color just for fun
+      info.el.style.borderColor = 'red';
+    },
+    events: 'cardapio.php'
+  });
+  calendar.render();
+
+
   $("#btn-cadastro-funcionario").click(function () {
     $("#form-cadastro-funcionario").validate({
       rules: {

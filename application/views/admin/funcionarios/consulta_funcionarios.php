@@ -3,7 +3,7 @@
         <thead>
             <tr>
                 <th>Funcionario</th>
-                <th>Ativo</th>
+                <th>Situação</th>
                 <th>Açoes</th>
                 <th>Id</th>
             </tr>

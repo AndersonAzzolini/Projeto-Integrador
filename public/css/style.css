@@ -2,52 +2,9 @@ body{
   background-color: #E6E3E1;
 }
 
-.wordbreak{
-  word-break: break-word;
+.fc-daygrid-day:hover{
+  background-color: #D1DFF4;
 }
 
-.img-for-slick{
-  border-radius: 1rem;
-}
-
-#h1-categorias{
-  word-break: break-word;
-  font-size: 3rem; font-family: 'OCR A Std, monospace'	;
-  padding: inherit;
-
-}
-#sobreAdmin{
-  color: #43464b;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 15px;
-}
-
-#img-sobre-home{
-  max-height: 50vh; 
-}
-
-@media (min-width: 770px) {
-  body, html{
-    height: 100vh;
-  }
-  #sobreAdmin{
-    text-align: justify;
-    word-break: break-word;
-    padding: inherit;
- }
-
-}
- @media (max-width: 768px) {
-  body, html{
-    height: 100vh;
-  }
-
-  #sobreAdmin{
-    text-align: justify;
-    word-break: break-word;
-    padding: inherit;
- }
- #h1-categorias{
-  font-size: 2rem;
-}
+@media(max-width: 600px) {
  }

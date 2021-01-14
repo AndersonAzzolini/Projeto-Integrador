@@ -7,10 +7,15 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="<?=base_url('public/js/jquery.validate.min.js')?>"></script>
-<script src="<?=base_url('public/js/bootstrap.bundle.min.js')?>"></script>
-<script src="<?=base_url('public/js/script.js')?>"></script>
-<script src="<?=base_url('public/js/scrip2.js')?>"></script>
+<script src="<?= base_url('public/js/jquery.validate.min.js') ?>"></script>
+<script src="<?= base_url('public/js/bootstrap.bundle.min.js') ?>"></script>
+<script src="<?= base_url('public/js/main.min.js') ?>"></script>
+<script src="<?= base_url('public/js/locales-all.min.js') ?>"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@5.5.0/main.global.min.js"></script>
 
+<script src="<?= base_url('public/locales/pt-br.js') ?>"></script>
+<script src="<?= base_url('public/js/script.js') ?>"></script>
+<script src="<?= base_url('public/js/scrip2.js') ?>"></script>
+<script>
+</script>
 </body>
-
