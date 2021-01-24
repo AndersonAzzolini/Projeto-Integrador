@@ -10,10 +10,15 @@
   <link rel="stylesheet" href="<?= base_url('public/css/bootstrap.min.css') ?>">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.css">
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <link rel="stylesheet" href="<?= base_url('public/css/main.min.css') ?>">
   <link rel="stylesheet" href="<?= base_url('public/css/style.css') ?>">
+
+
+
+
   <title>Hello, world!</title>
 </head>
 <body>
@@ -25,6 +30,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
+        <a class="nav-link" href="<?= base_url('admin/funcionarios/log') ?>">Logs do Sistema</a>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Cardapio</a>
             <div class="dropdown-menu">

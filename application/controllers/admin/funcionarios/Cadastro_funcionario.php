@@ -38,9 +38,18 @@ class Cadastro_funcionario extends Admin_Controller
                 );
                 $registerFuncionario = $this->Funcionario_model->registerFuncionario($insert);
                 if ($registerFuncionario > 0) {
-                    $retorno = array(
-                        'result' => true
-                    );
+                    $buscaEmail = $this->Funcionario_model->buscaEmail($this->input->post('emailFuncionario'));
+                    foreach ($buscaEmail as $row) {
+                        $insertPermissoes = array(
+                            'id_funcionario' => $row->id
+                        );
+                        $CadastraTabelaPermissao = $this->Funcionario_model->insert_funcionario_permissao($insertPermissoes);
+                        if ($CadastraTabelaPermissao > 0) {
+                            $retorno = array(
+                                'result' => true
+                            );
+                        }
+                    }
                 }
             }
             echo json_encode($retorno);

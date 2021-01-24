@@ -15,6 +15,7 @@ class Consulta_funcionario extends Admin_Controller
         $this->load->view('admin/funcionarios/consulta_funcionarios', $funcionario);
         $this->load->view('admin/includes/footer');
     }
+    
     public function AlteraSituacao()
     {
         if ($_POST) {

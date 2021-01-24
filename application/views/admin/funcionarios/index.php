@@ -5,7 +5,7 @@
     <div class="form">
         <form id="form-cadastro-funcionario" name="form-cadastro-funcionario">
             <div class="col align-self-center">
-                <div class="col-6">
+                <div class="col-xs-12">
                     <div class="form-group ">
                         <label for="nomeFuncionario">Nome</label>
                         <input type="text" id="nomeFuncionario" name="nomeFuncionario" class="form-control" placeholder="Digite o Nome">
