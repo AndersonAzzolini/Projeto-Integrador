@@ -49,7 +49,6 @@ class Funcionario_Controller extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->_header();
         if ($this->session->userdata('logado') != true) {
             $this->session->set_flashdata('mensagem', 'Realize o login primeiro');
             redirect(base_url('funcionarios/login'));
@@ -83,40 +82,5 @@ class Funcionario_Controller extends MY_Controller
         }
     }
 
-    public function __destruct()
-    {
-        $this->_footer();
-    }
-    public function _header()
-    {
-        $this->load->view('funcionario/includes/header');
-    }
-    public function _footer()
-    {
-        ##faz a inclusão do arquivo do modo tradicional pois não tem mais acesso a CI_Controller
-        require_once(APPPATH . 'views/funcionario/includes/footer.php');
-    }
 }
 
-
-class Public_Controller extends MY_Controller
-{
-    public function __construct()
-    {
-        parent::__construct();
-        $this->_header();
-    }
-    public function __destruct()
-    {
-        $this->_footer();
-    }
-    public function _header()
-    {
-        $this->load->view('includes/header');
-    }
-    public function _footer()
-    {
-        ##faz a inclusão do arquivo do modo tradicional pois não tem mais acesso a CI_Controller
-        require_once(APPPATH . 'views/includes/footer.php');
-    }
-}

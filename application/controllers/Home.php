@@ -1,6 +1,6 @@
 <?php
 
-class Home extends Public_Controller
+class Home extends MY_Controller
 {
     public function __construct()
     {
@@ -8,7 +8,9 @@ class Home extends Public_Controller
     }
     public function index()
     {
+        $this->load->view('includes/header');
         $this->load->view('home/index');
+        $this->load->view('includes/footer');
 
     }
 }

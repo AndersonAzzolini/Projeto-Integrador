@@ -1,14 +1,20 @@
 <?php
 
-class Cadastro extends Public_Controller
+class Cadastro extends MY_Controller
 {
     public function __construct()
     {
         parent::__construct();
         $this->load->model('Cadastro_model');
-        $this->load->view('cadastro');
     }
     public function index()
+    {
+        $this->load->view('includes/header');
+        $this->load->view('cadastro');
+        $this->load->view('includes/footer');
+    }
+
+    public function cadastroEmpresa()
     {
         if ($_POST) {
             $email = $this->input->post('email');
@@ -17,11 +23,7 @@ class Cadastro extends Public_Controller
                 $retorno = array(
                     'result' => 'cadastrado'
                 );
-                echo 'email ja cadastrado no sistema';
-               // exit();
-                //redirect(base_url('admin/login'));     
             } else {
-                echo 'caiu no else, segue no cadastro..';
                 $insert = array(
                     'nome' => $this->input->post('nome'),
                     'nome_empresa' => $this->input->post('nomeEmpresa'),
@@ -38,8 +40,8 @@ class Cadastro extends Public_Controller
                         'result' => false
                     );
                 };
-                echo json_encode($retorno);
             }
+            echo json_encode($retorno);
         }
     }
 }

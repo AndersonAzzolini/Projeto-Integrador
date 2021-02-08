@@ -62,7 +62,6 @@
                                 </div>
                             </form>
                         </div>
-
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -73,26 +72,33 @@
         </div>
     </div>
     <div class="modal fade" id="modal-edita-usuarios" aria-hidden="true">
-        <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-dialog  modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="text-center">
                         <h4>informações do usúario</h4>
                     </div>
                     <div class="col-xs-12 ">
-                        <form name="form-refeicao" id="form-refeicao">
+                        <form name="form-update-usuario" id="form-update-usuario">
                             <div>
-                                <label for="nomeRefeicao" class="col-form-label col-form-label-sm">Refeição</label>
-                                <input type="text" id="nomeRefeicao" name="nomeRefeicao" class="form-control form-control-sm" placeholder="Digite o Nome">
+                                <label for="nomeFuncionario" class="col-form-label col-form-label-sm">Nome</label>
+                                <input type="text" id="nomeFuncionario" name="nomeFuncionario" class="form-control form-control-sm" placeholder="Digite o Nome">
+                                <label for="sobrenomeFuncionario" class="col-form-label col-form-label-sm">Sobrenome</label>
+                                <input type="text" id="sobrenomeFuncionario" name="sobrenomeFuncionario" class="form-control form-control-sm" placeholder="Digite o Sobrenome">
+                                <label for="emailFuncionario" class="col-form-label col-form-label-sm">Email</label>
+                                <input type="email" id="emailFuncionario" name="emailFuncionario" class="form-control form-control-sm" placeholder="Digite o Email">
+                                <label for="senhaFuncionario" class="col-form-label col-form-label-sm">Senha</label>
+                                <input type="password" id="senhaFuncionario" name="senhaFuncionario" class="form-control form-control-sm" placeholder="Digite a Senha">
+                                <input type="text" id="idFuncionario" name="idFuncionario" class="form-control form-control-sm" readonly hidden>
+
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-primary" id="btn-update-usuario">Adicionar</button>
+                            </div>
+
                         </form>
-                        <div>
-                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary" id="btnEnviaRefeição">Adicionar</button>
                 </div>
             </div>
         </div>

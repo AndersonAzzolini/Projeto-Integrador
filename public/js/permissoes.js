@@ -79,20 +79,4 @@ $(document).ready(function () {
     $('#form-permissoes')[0].reset();
   })
 
-  $(".btn-edita-user").click(function () {
-    $("#modal-edita-usuarios").modal();
-    $nome = $(this).parent().closest("tr").children('td:eq(1)').text().trim();
-    $id = $(this).parent().closest("tr").children('td:eq(3)').text().trim();
-    alert($nome + ' ' + $id)
-    $.ajax({
-      method: "POST",
-      url: "consulta_funcionario/teste",
-      data: {
-        'id': $id,
-        'situacao': 0
-      },
-      timeout: 15000,
-      dataType: 'json',
-    })
-  })
 });

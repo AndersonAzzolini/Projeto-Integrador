@@ -24,7 +24,6 @@
                             <input type="password" id="senhaFuncionario" name="senhaFuncionario" class="form-control" placeholder="Digite sua Senha">
                         </div>
                         <button class="btn btn-primary mt-2" id="btn-cadastro-funcionario">Cadastrar</button>
-
                     </div>
                 </div>
             </div>

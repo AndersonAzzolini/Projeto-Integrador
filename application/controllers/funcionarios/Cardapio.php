@@ -5,54 +5,25 @@ class Cardapio extends Admin_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('admin/Cardapio_model');
+        $this->load->model('funcionarios/Cardapio_model');
+        $this->load->model('funcionarios/Funcionario_model');
+
     }
     public function index()
     {
-        $this->load->view('admin/includes/header');
-        $this->load->view('admin/cardapio/cardapio');
-        $this->load->view('admin/includes/footer');
+        $this->load->view('funcionario/includes/header');
+        $this->load->view('funcionario/cardapio/cardapio');
+        $this->load->view('funcionario/includes/footer');
     }
 
-    public function cadastro_refeicao()
-    {
-        if ($_POST) {
-            extract($_POST);
-            if (($nomeRefeicao == null) || ($cardapio  == null) || ($dataInicio  == null) || ($dataFinal  == null)) {
-                $retorno = null;
-            } else {
-                $dataIncialFormatada = $this->formataData($dataInicio);
-                $dataFinalFormatada = $this->formataData($dataFinal);
-                if ($dataIncialFormatada > $dataFinalFormatada) {
-                    $retorno = array(
-                        'result' => 'dateFalse'
-                    );
-                } else if ($dataIncialFormatada == $dataFinalFormatada) {
-                    $retorno = false;
-                } else {
-                    $insert = array(
-                        'start'      => $dataInicio,
-                        'end'        => $dataFinal,
-                        'title'      => $nomeRefeicao,
-                        'descricao'  => $cardapio,
-                        'color'      => $color,
-                        'id_empresa'=> $this->session->userdata('id')
-                    );
-                    $enviaInsert = $this->Cardapio_model->cadastraCardapio($insert);
-                    if ($enviaInsert > 0) {
-                        $retorno = true;
-                    } else {
-                        $retorno = 'insertFalse';
-                    }
-                }
-            }
-            echo json_encode($retorno);
-        }
-    }
     public function list_refeicao()
 
     {
-        $buscaBanco  = $this->Cardapio_model->get_cardapio($this->session->userdata('id'));
+        $buscaIdEmpresa = $this->Funcionario_model->buscaIdEmpresa($this->session->userdata('id'));
+        foreach($buscaIdEmpresa as $rowID){
+            $id =  $rowID->id_empresa;
+        }
+        $buscaBanco  = $this->Cardapio_model->get_cardapio($id);
         foreach ($buscaBanco as $row) {
             $start = $row->start;
             $end = $row->end;

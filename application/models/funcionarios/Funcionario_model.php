@@ -57,4 +57,10 @@ class Funcionario_model extends CI_Model
     $this->db->insert('tb_permissoes', $id_funcionario);
     return $this->db->affected_rows();
   }
+
+  public function buscaIdEmpresa($id)
+  {
+    $query = $this->db->select('id_empresa')->from('tb_funcionario')->where('id', $id)->get();
+    return $query->result();
+  }
 }

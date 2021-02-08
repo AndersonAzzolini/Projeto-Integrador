@@ -1,5 +1,29 @@
 $(document).ready(function () {
 
+  $("#btn-update-usuario").click(function () {
+    $.ajax({
+      method: "POST",
+      url: "cadastro_funcionario/updateFuncionario",
+      data: $('#form-update-usuario').serialize(),
+      timeout: 15000,
+      dataType: 'json',
+      success: function (retorno) {
+        if (retorno == true) {
+          Swal.fire({
+            title: 'Informações alteradas com sucesso',
+            icon: 'success',
+          })
+        } else {
+          Swal.fire({
+            title: 'Nenhuma alteração realizada',
+            icon: 'error',
+          })
+
+        }
+      }
+    })
+  })
+
   $('.form-check-input').click(function () {
     $ArrayIdAtivos = [];
     $nome = $(this).parent().closest("tr").children('td:eq(1)').text().trim();
@@ -7,9 +31,9 @@ $(document).ready(function () {
 
     if ($nome == "Ativo") {
       $nome = 'Desativado';
-      $.ajax({ //Começa requisição para o servidor 
+      $.ajax({
         method: "POST",
-        url: "consulta_funcionario/AlteraSituacao", // Url de destino do form
+        url: "consulta_funcionario/AlteraSituacao",
         data: {
           'id': $id,
           'situacao': 0
@@ -33,9 +57,9 @@ $(document).ready(function () {
       })
     } else {
       $nome = 'Ativo';
-      $.ajax({ //Começa requisição para o servidor 
+      $.ajax({
         method: "POST",
-        url: "consulta_funcionario/AlteraSituacao", // Url de destino do form
+        url: "consulta_funcionario/AlteraSituacao",
         data: {
           'id': $id,
           'situacao': 1
@@ -59,37 +83,6 @@ $(document).ready(function () {
       })
     }
   })
-
-  $("#btnCadastraRefeicao").click(function () {
-    $("#modalCadastroCardapio").modal();
-    $("#btnEnviaRefeição").click(function () {
-      $("#form-refeicao").validate({
-        rules: {
-          nomeRefeicao: "required",
-        },
-        messages: {
-          nomeRefeicao: "Campo obrigatório",
-        },
-        errorPlacement: function (error, element) {
-          error.insertAfter(element).addClass("text-danger");
-        },
-        errorClass: "is-invalid",
-        submitHandler: function (form) {
-          $.ajax({
-            method: "POST",
-            url: "admin/cardapio/cadastro_refeicao",
-            data: $('#form-refeicao').serialize(),
-            timeout: 15000,
-            dataType: 'json',
-            success: function (retorno) {
-              alert(retorno);
-            }
-          })
-        }
-      });
-    })
-  })
-
 
   $("#btn-cadastro-funcionario").click(function () {
     $("#form-cadastro-funcionario").validate({
@@ -116,13 +109,13 @@ $(document).ready(function () {
       },
       errorClass: "is-invalid",
       submitHandler: function (form) {
-        $.ajax({ 
+        $.ajax({
           method: "POST",
-          url: "cadastro_funcionario/registerFuncionario",  
+          url: "cadastro_funcionario/registerFuncionario",
           data: $('#form-cadastro-funcionario').serialize(),
           timeout: 15000,
           dataType: 'json',
-          success: function (retorno) { 
+          success: function (retorno) {
             if (retorno['result'] == "cadastrado") {
               Swal.fire({
                 title: 'Email já cadastrado!',
@@ -141,6 +134,42 @@ $(document).ready(function () {
     });
   });
 
+  $("#btnEditaRefeicao").click(function () {
+    let $dataInicio = $("#inicioEvento").val()
+    let $dataFinal = $("#fimEvento").val()
+    $.ajax({
+      method: "POST",
+      url: "cardapio/buscadata",
+      data: $("#form-edita-refeicao").serialize(),
+      timeout: 15000,
+      dataType: 'json',
+      success: function (retorno) {
+        if (retorno['result'] == 'dateFalse') {
+          Swal.fire({
+            title: 'Hora inicial não pode ser maior que a final!!',
+            icon: 'error',
+          })
+        } else if (retorno == false) {
+          Swal.fire({
+            title: 'Hora inicial não pode ser igual data final!!',
+            icon: 'error',
+          })
+        } else if (retorno == true) {
+          Swal.fire({
+            title: 'Cardapio atualizado com sucesso!!',
+            icon: 'success',
+          })
+        } else {
+          Swal.fire({
+            title: 'Nenhuma alteração realizada!!',
+            icon: 'error',
+          })
+        }
+      }
+    })
+  })
+
+
   $("#btn-cadastro-empresa").click(function () {
     $("#form-cadastro-empresa").validate({
       rules: {
@@ -156,6 +185,7 @@ $(document).ready(function () {
         nome: "Campo Obrigatório",
         sobrenome: "Campo Obrigatório",
         nomeEmpresa: "Campo Obrigatório",
+        senha: "Campo Obrigatório",
         email: {
           required: "Campo Obrigatório",
           email: "Insira um email valido!"
@@ -168,42 +198,91 @@ $(document).ready(function () {
       submitHandler: function (form) {
         $.ajax({
           method: "POST",
-          url: "cadastro/index",
+          url: "cadastro/cadastroEmpresa",
           data: $('#form-cadastro-empresa').serialize(),
           timeout: 15000,
           dataType: 'json'
         }).done(function (retorno) {
-          alert("teste")
-
           if (retorno['result'] == 'cadastrado') {
-            alert("caiu no if")
+            Swal.fire({
+              title: 'Email já cadastrado no sistema!',
+              icon: 'error',
+            })
           } else {
-            alert("não caiu no if")
+            Swal.fire({
+              title: 'Cadastro realizado com sucesso!!',
+              icon: 'success',
+            })
+            $("#form-cadastro-empresa")[0].reset();
           }
         });
       }
     });
   });
 
-
   $("#btnCadastraRefeicao").click(function () {
     $("#modalCadastroCardapio").modal();
-    $("#btnEnviaRefeição").click(function () {
-      $.ajax({
-        method: "POST",
-        url: "cardapio/cadastro_refeicao",
-        data: $('#form-refeicao').serialize(),
-        timeout: 15000,
-        dataType: 'json',
-        success: function (retorno) {
-          alert(retorno);
-        }
-      })
+  })
 
+  $("#btnEnviaRefeição").click(function () {
+    $.ajax({
+      method: "POST",
+      url: "cardapio/cadastro_refeicao",
+      data: $('#form-refeicao').serialize(),
+      timeout: 15000,
+      dataType: 'json',
+      success: function (retorno) {
+        if (retorno == null) {
+          Swal.fire({
+            title: 'Preenhca todos os campos por favor!!',
+            icon: 'error',
+          })
+        } else if (retorno['result'] == 'dateFalse') {
+          Swal.fire({
+            title: 'Hora inicial não pode ser maior que a final!!',
+            icon: 'error',
+          })
+        } else if (retorno == false) {
+          Swal.fire({
+            title: 'Hora inicial não pode ser igual data final!!',
+            icon: 'error',
+          })
+        } else if (retorno == true) {
+          Swal.fire({
+            title: 'Refeição inserida com sucesso!!',
+            icon: 'success',
+          })
+        } else {
+          wal.fire({
+            title: 'Erro ao cadastrar Refeição!!',
+            icon: 'error',
+          })
+        }
+      }
     })
   })
 
-
+  $(".btn-edita-user").click(function () {
+    $nome = $(this).parent().closest("tr").children('td:eq(1)').text().trim();
+    $id = $(this).parent().closest("tr").children('td:eq(3)').text().trim();
+    $.ajax({
+      method: "POST",
+      url: "consulta_funcionario/buscaDadosFuncionario",
+      data: {
+        'id': $id,
+      },
+      timeout: 15000,
+      dataType: 'json',
+      success: function (retorno) {
+        $("#modal-edita-usuarios").modal();
+        $("#nomeFuncionario").val(retorno['nome']);
+        $("#sobrenomeFuncionario").val(retorno['sobrenome']);
+        $("#emailFuncionario").val(retorno['email']);
+        $("#senhaFuncionario").val(retorno['senha']);
+        $("#idFuncionario").val(retorno['id']);
+      }
+    })
+  })
 
   $('.dataTable').DataTable({
     "language": {

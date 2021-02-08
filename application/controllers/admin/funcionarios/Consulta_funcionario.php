@@ -11,11 +11,10 @@ class Consulta_funcionario extends Admin_Controller
     {
         $funcionario['funcionario'] = $this->Funcionario_model->BuscaFuncionario();
         $this->load->view('admin/includes/header');
-
         $this->load->view('admin/funcionarios/consulta_funcionarios', $funcionario);
         $this->load->view('admin/includes/footer');
     }
-    
+
     public function AlteraSituacao()
     {
         if ($_POST) {
@@ -48,6 +47,29 @@ class Consulta_funcionario extends Admin_Controller
                 }
             }
             echo json_encode($retorno);
+        }
+    }
+
+    public function buscaDadosFuncionario()
+    {
+        if ($_POST) {
+            extract($_POST);
+            $perfilFuncionario = $this->Funcionario_model->BuscaFuncionario($id);
+            foreach($perfilFuncionario as $fields){
+                $nome = $fields->nome;
+                $sobrenome = $fields->sobrenome;
+                $email = $fields->email;
+                $senha = $fields->senha;
+
+                $retorno = array(
+                    'nome' => $nome,
+                    'sobrenome' => $sobrenome,
+                    'email' => $email,
+                    'senha' => $senha,
+                    'id' => $id
+                );
+                echo json_encode($retorno);
+            }
         }
     }
 }

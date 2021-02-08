@@ -23,8 +23,8 @@ class Login extends CI_Controller
             $this->index();
         } else {
             $where = array(
-                'email' => $this->input->post('loginEmail'),
-                'senha' => $this->input->post('loginSenha')
+                'email'         => $this->input->post('loginEmail'),
+                'senha'         => $this->input->post('loginSenha')
             );
             $busca = $this->Login_model->get($where);
             if ($busca) {

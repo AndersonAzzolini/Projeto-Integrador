@@ -5,7 +5,7 @@
     <div class="form">
         <form id="form-cadastro-empresa" name="form-cadastro-empresa">
             <div class="col align-self-center">
-                <div class="col-6">
+                <div class="col-xs-12">
                     <div class="form-group ">
                         <label for="nome">Nome</label>
                         <input type="text" id="nome" name="nome" class="form-control" placeholder="Digite seu Nome">
@@ -24,9 +24,11 @@
                             <input type="password" id="senha" name="senha" class="form-control" placeholder="Digite sua Senha">
                         </div>
                         <button class="btn btn-primary mt-2" id="btn-cadastro-empresa">Cadastrar</button>
+
                     </div>
                 </div>
             </div>
+
         </form>
     </div>
 </div>

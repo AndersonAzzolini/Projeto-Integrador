@@ -55,4 +55,28 @@ class Cadastro_funcionario extends Admin_Controller
             echo json_encode($retorno);
         }
     }
+
+    public function updateFuncionario()
+    {
+        if($_POST){
+            extract($_POST);
+            if(($nomeFuncionario == null) || ($sobrenomeFuncionario == null) || ($emailFuncionario == null) || ($senhaFuncionario == null)){
+               $retorno = null;
+            }else{
+                $insert = array(
+                    'nome'        => $nomeFuncionario,
+                    'sobrenome'   => $sobrenomeFuncionario,
+                    'email'       => $emailFuncionario,
+                    'senha'       => $senhaFuncionario
+                );
+                $enviaInsert = $this->Funcionario_model->updateFuncionario($idFuncionario, $insert);
+                if($enviaInsert > 0 ){
+                    $retorno = true;
+                }else{
+                    $retorno = false;
+                }
+            }
+            echo json_encode($retorno);
+        }
+    }
 }
